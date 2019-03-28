@@ -19,14 +19,23 @@
         <dt>
             @Html.DisplayNameFor(model => model.SpartanUsers)
         </dt>
-        @foreach (var spartan in Model.SpartanUsers)
-        {
+        @{ try
+            {
+                foreach (var spartan in Model.SpartanUsers)
+                {
 
-            <dd>
-                @spartan.FullName
-            </dd>
+                    <dd>
+                        @spartan.FullName
+                    </dd>
+                }
+            }
+            catch (NullReferenceException)
+            {
+                <dd>
+                    There are no Spartans currently signed on to this cohort.
+                </dd>
+            }
         }
-
     </dl>
 </div>
 <div>

@@ -19,6 +19,10 @@
                 <span asp-validation-for="CohortName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Specialisations" class="control-label"></label>
+                <select asp-for="Specialisations" class="form-control" asp-items="ViewBag.Specialisations"></select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </form>
