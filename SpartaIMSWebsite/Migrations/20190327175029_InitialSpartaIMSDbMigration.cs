@@ -51,7 +51,7 @@ namespace SpartaIMSWebsite.Migrations
                         column: x => x.SpecialisationSpecID,
                         principalTable: "Specialisations",
                         principalColumn: "SpecID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
