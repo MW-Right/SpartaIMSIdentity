@@ -14,6 +14,8 @@ namespace SpartaIMSWebsite.Controllers
     [Authorize]
     public class CohortController : Controller
     {
+        List<SpartanUser> spartans = new List<SpartanUser>();
+        
         private readonly SpartaIMSDbContext _context;
 
         public CohortController(SpartaIMSDbContext context)
@@ -24,6 +26,10 @@ namespace SpartaIMSWebsite.Controllers
         // GET: Cohort
         public async Task<IActionResult> Index()
         {
+
+            var spa = _context.SpartanUsers;
+            spartans= spa.ToList<SpartanUser>();
+
             return View(await _context.Cohorts.ToListAsync());
         }
 
@@ -142,9 +148,18 @@ namespace SpartaIMSWebsite.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cohort = await _context.Cohorts.FindAsync(id);
-            _context.Cohorts.Remove(cohort);
-            await _context.SaveChangesAsync();
+            //var spartan = await _context.SpartanUsers.FindAsync(id);
+             
+            //spartan  = spartan.Where(s => s.Cohort.Contains(searchName));
+            //if ()
+            //{
+            //    ViewBag.ErrorMessage = "Can't delete record attached to user";
+            //    //_context.Cohorts.Remove(cohort);
+            //    //await _context.SaveChangesAsync();
+                
+            //}
             return RedirectToAction(nameof(Index));
+
         }
 
         private bool CohortExists(int id)

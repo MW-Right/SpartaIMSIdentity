@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a id="createUser" asp-action="Create">Create New</a>
 </p>
 <form asp-controller="SpartanUser" asp-action="Index">
     <p>
@@ -32,7 +32,7 @@
                 @Html.DisplayNameFor(model => model.FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cohort)
+                @Html.DisplayNameFor(model => model.Cohort.CohortName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.JobRole)
@@ -56,15 +56,22 @@
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
+
                 @Html.DisplayFor(modelItem => item.Cohort.CohortName)
+
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Cohort.CohortNumber)
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.JobRole.JobRoleName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.SpartanID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SpartanID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SpartanID">Delete</a>
+                <a id="editUser" asp-action="Edit" asp-route-id="@item.SpartanID">Edit</a> |
+                <a id="detailsUser" asp-action="Details" asp-route-id="@item.SpartanID">Details</a> |
+                <a id="deleteUser" asp-action="Delete" asp-route-id="@item.SpartanID">Delete</a>
             </td>
         </tr>
 }
