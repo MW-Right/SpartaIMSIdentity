@@ -13,9 +13,14 @@ namespace SpartaIMS_Database.Models
         public int CohortID { get; set; }
         [Display(Name = "Cohort Name")]
         public string CohortName { get; set; }
-        public int CohortNumber { get; set; }
+        
 
         //Adding foreign key constraints
+        [Display(Name = "Spartans")]
         public List<SpartanUser> SpartanUsers { get; set; }
+        public int SpecID { get; set; }
+        public Specialisation Specialisations { get; set; }
+       
+        
     }
 }

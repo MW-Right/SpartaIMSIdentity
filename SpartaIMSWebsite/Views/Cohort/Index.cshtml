@@ -16,9 +16,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.CohortName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CohortNumber)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -28,9 +25,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CohortName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CohortNumber)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CohortID">Edit</a> |

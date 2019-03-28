@@ -17,11 +17,16 @@
             @Html.DisplayFor(model => model.CohortName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.CohortNumber)
+            @Html.DisplayNameFor(model => model.SpartanUsers)
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.CohortNumber)
-        </dd>
+        @foreach (var spartan in Model.SpartanUsers)
+        {
+
+            <dd>
+                @spartan.FullName
+            </dd>
+        }
+
     </dl>
 </div>
 <div>
