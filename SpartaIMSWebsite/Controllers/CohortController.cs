@@ -21,6 +21,9 @@ namespace SpartaIMSWebsite.Controllers
             _context = context;
         }
 
+    
+        public List<SpartanUser> spartans { get; set; }
+
         // GET: Cohort
         public async Task<IActionResult> Index()
         {
@@ -41,6 +44,10 @@ namespace SpartaIMSWebsite.Controllers
             {
                 return NotFound();
             }
+            else
+            {
+                spartans = _context.SpartanUsers.Where(su => su.CohortID == cohort.CohortID).ToList();
+            }
 
             return View(cohort);
         }
@@ -56,7 +63,7 @@ namespace SpartaIMSWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CohortID,CohortName,CohortNumber")] Cohort cohort)
+        public async Task<IActionResult> Create([Bind("CohortID,CohortName")] Cohort cohort)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +95,7 @@ namespace SpartaIMSWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CohortID,CohortName,CohortNumber")] Cohort cohort)
+        public async Task<IActionResult> Edit(int id, [Bind("CohortID,CohortName")] Cohort cohort)
         {
             if (id != cohort.CohortID)
             {
@@ -132,6 +139,7 @@ namespace SpartaIMSWebsite.Controllers
             {
                 return NotFound();
             }
+
 
             return View(cohort);
         }

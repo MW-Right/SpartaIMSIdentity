@@ -29,22 +29,16 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Cohort)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Cohort.CohortID)
+            @Html.DisplayFor(model => model.Cohort.CohortName)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.JobRole)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.JobRole.JobRoleID)
+            @Html.DisplayFor(model => model.JobRole.JobRoleName)
         </dd>
     </dl>
 </div>

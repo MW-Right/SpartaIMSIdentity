@@ -21,6 +21,7 @@ namespace SpartaIMSWebsite.Controllers
             _context = context;
         }
 
+        public List<SpartanUser> spartans { get; set; }
         // GET: JobRoles
         public async Task<IActionResult> Index()
         {
@@ -40,6 +41,10 @@ namespace SpartaIMSWebsite.Controllers
             if (jobRole == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                spartans = _context.SpartanUsers.Where(su => su.JobRoleID == jobRole.JobRoleID).ToList();
             }
 
             return View(jobRole);
@@ -80,6 +85,7 @@ namespace SpartaIMSWebsite.Controllers
             {
                 return NotFound();
             }
+            
             return View(jobRole);
         }
 

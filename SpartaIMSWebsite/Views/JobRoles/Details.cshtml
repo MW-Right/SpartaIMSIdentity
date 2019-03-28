@@ -16,6 +16,16 @@
         <dd>
             @Html.DisplayFor(model => model.JobRoleName)
         </dd>
+                <dt>
+            @Html.DisplayNameFor(model => model.SpartanUsers)
+        </dt>
+        @foreach (var spartan in Model.SpartanUsers)
+        {
+
+            <dd>
+                @spartan.FullName
+            </dd>
+        }
     </dl>
 </div>
 <div>

@@ -21,6 +21,8 @@ namespace SpartaIMSWebsite.Controllers
             _context = context;
         }
 
+        public List<Cohort> cohorts { get; set; }
+
         // GET: Specialisations
         public async Task<IActionResult> Index()
         {
@@ -40,6 +42,10 @@ namespace SpartaIMSWebsite.Controllers
             if (specialisation == null)
             {
                 return NotFound();
+            }
+            else
+            {
+                cohorts = _context.Cohorts.Where(c => c.SpecID == specialisation.SpecID).ToList();
             }
 
             return View(specialisation);
