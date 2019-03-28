@@ -22,8 +22,7 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
+                @Html.DisplayNameFor(model => model.Cohort)
             <th>
                 @Html.DisplayNameFor(model => model.Cohort.CohortName)
             </th>
@@ -46,13 +45,10 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FullName)
+                @Html.DisplayFor(modelItem => item.Cohort.CohortName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cohort.CohortName) @Html.DisplayFor(modelItem => item.Cohort.CohortNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobRole.JobRoleID)
+                @Html.DisplayFor(modelItem => item.JobRole.JobRoleName)
             </td>
             <td>
                 <a id="editUser" asp-action="Edit" asp-route-id="@item.SpartanID">Edit</a> |

@@ -16,6 +16,7 @@ namespace SpartaIMS_Database.Models
         public string JobRoleName { get; set; }
 
         //Adding foreign key constraints
+        [Display(Name = "Spartans")]
         public List<SpartanUser> SpartanUsers { get; set; }
     }
 }

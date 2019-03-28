@@ -16,6 +16,16 @@
         <dd>
             @Html.DisplayFor(model => model.SpecName)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cohorts)
+        </dt>
+        @foreach (var cohort in Model.Cohorts)
+        {
+
+            <dd>
+                @cohort.CohortName
+            </dd>
+        }
     </dl>
 </div>
 <div>
