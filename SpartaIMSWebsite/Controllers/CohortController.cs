@@ -142,17 +142,10 @@ namespace SpartaIMSWebsite.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cohort = await _context.Cohorts.FindAsync(id);
-            if(cohort.SpartanUsers.Count == 0)
-            {
-                _context.Cohorts.Remove(cohort);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            else
-            {
-                ViewData["Message"] = "Cannot delete a cohort while users are assigned to it";
-                return RedirectToAction(nameof(Index));
-            }
+            _context.Cohorts.Remove(cohort);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
         }
 
         private bool CohortExists(int id)
