@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<SpartaIMS_Database.Models.Cohort>
+@using System.Diagnostics;
 
 @{
     ViewData["Title"] = "Index";
@@ -19,7 +20,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CohortName)
@@ -27,9 +29,25 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CohortID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CohortID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CohortID">Delete</a>
+                @{ 
+                    try
+                    {
+                        if (!(item.SpartanUsers.Count() >= 0))
+                        {
+                            <a asp-action="Delete" ifp-route-id="@item.CohortID"></a>
+                        }
+
+                    }
+                    catch (ArgumentNullException)
+                    {
+                            <a asp-action="Delete/@item.CohortID">Delete</a>
+                    }
+
+                }
+                
+
             </td>
         </tr>
-}
+                    }
     </tbody>
 </table>
