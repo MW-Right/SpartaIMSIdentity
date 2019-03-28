@@ -22,10 +22,16 @@ namespace SpartaIMSWebsite.Controllers
         }
 
         // GET: SpartanUser
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchName)
         {
-            var spartaIMSDbContext = _context.SpartanUsers.Include(s => s.Cohort).Include(s => s.JobRole);
-            return View(await spartaIMSDbContext.ToListAsync());
+            var spartans = from s in _context.SpartanUsers.Include(s=> s.Cohort).Include(s=> s.JobRole)
+                           select s;
+            
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                spartans = spartans.Where(s => s.FullName.Contains(searchName));
+            }
+            return View(await spartans.ToListAsync());
         }
 
         // GET: SpartanUser/Details/5

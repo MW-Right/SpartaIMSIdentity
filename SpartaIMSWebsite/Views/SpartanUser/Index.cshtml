@@ -9,6 +9,13 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form asp-controller="SpartanUser" asp-action="Index">
+    <p>
+        Name: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -49,10 +56,10 @@
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cohort.CohortID)
+                @Html.DisplayFor(modelItem => item.Cohort.CohortName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.JobRole.JobRoleID)
+                @Html.DisplayFor(modelItem => item.JobRole.JobRoleName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.SpartanID">Edit</a> |
