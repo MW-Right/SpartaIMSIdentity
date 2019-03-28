@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SpartaIMSWebsite.Migrations
 {
-    public partial class InitialSpartaIMSDbMigration : Migration
+    public partial class InitialSpartaDbMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,18 +40,17 @@ namespace SpartaIMSWebsite.Migrations
                     CohortID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CohortName = table.Column<string>(nullable: true),
-                    CohortNumber = table.Column<int>(nullable: false),
-                    SpecialisationSpecID = table.Column<int>(nullable: true)
+                    SpecID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cohorts", x => x.CohortID);
                     table.ForeignKey(
-                        name: "FK_Cohorts_Specialisations_SpecialisationSpecID",
-                        column: x => x.SpecialisationSpecID,
+                        name: "FK_Cohorts_Specialisations_SpecID",
+                        column: x => x.SpecID,
                         principalTable: "Specialisations",
                         principalColumn: "SpecID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -76,19 +75,19 @@ namespace SpartaIMSWebsite.Migrations
                         column: x => x.CohortID,
                         principalTable: "Cohorts",
                         principalColumn: "CohortID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_SpartanUsers_JobRoles_JobRoleID",
                         column: x => x.JobRoleID,
                         principalTable: "JobRoles",
                         principalColumn: "JobRoleID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cohorts_SpecialisationSpecID",
+                name: "IX_Cohorts_SpecID",
                 table: "Cohorts",
-                column: "SpecialisationSpecID");
+                column: "SpecID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SpartanUsers_CohortID",

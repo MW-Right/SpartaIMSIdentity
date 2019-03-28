@@ -18,11 +18,9 @@ namespace SpartaIMS_Database.Models
         [Required]
         public string LastName { get; set; }
         [Required]
-        [RegularExpression(@"^[\w]+\@spartaglobal\.com$", ErrorMessage = "Email must end with '@spartaglobal.com'")]
         [DataType(DataType.EmailAddress)]
         [RegularExpression(@"^[\w]+\@spartaglobal\.com$", ErrorMessage = "Email must end with '@spartaglobal.com'")]
         public string Email { get; set; }
-        [RegularExpression(@"^(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?!.*\s).{8,30}$", ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter and one number with a minimum of 8 characters.")]
         [DataType(DataType.Password)]
         [RegularExpression(@"^(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?!.*\s).{8,30}$", ErrorMessage = "Password must contain at least one uppercase letter, one lowercase letter and one number with a minimum of 8 characters.")]
         public string Password { get; set; }

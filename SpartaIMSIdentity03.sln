@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpartaIMSWebsite", "SpartaIMSWebsite\SpartaIMSWebsite.csproj", "{D11869D3-1362-4849-AFC2-51CCBEC846BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpartaIMSWebsite", "SpartaIMSWebsite\SpartaIMSWebsite.csproj", "{D11869D3-1362-4849-AFC2-51CCBEC846BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpartaIMS_Database", "SpartaIMS_Database\SpartaIMS_Database.csproj", "{60DD620F-CCF1-44E2-9158-B9B8294706D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpartaIMS_Database", "SpartaIMS_Database\SpartaIMS_Database.csproj", "{60DD620F-CCF1-44E2-9158-B9B8294706D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

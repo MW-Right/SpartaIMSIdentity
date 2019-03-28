@@ -23,9 +23,6 @@ namespace SpartaIMSWebsite.Controllers
             _context = context;
         }
 
-    
-        public List<SpartanUser> spartans { get; set; }
-
         // GET: Cohort
         public async Task<IActionResult> Index()
         {

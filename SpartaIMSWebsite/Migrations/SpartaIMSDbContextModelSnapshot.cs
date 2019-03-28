@@ -14,7 +14,7 @@ namespace SpartaIMSWebsite.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -98,7 +98,7 @@ namespace SpartaIMSWebsite.Migrations
                     b.HasOne("SpartaIMS_Database.Models.Specialisation", "Specialisations")
                         .WithMany("Cohorts")
                         .HasForeignKey("SpecID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("SpartaIMS_Database.Models.SpartanUser", b =>
@@ -106,12 +106,12 @@ namespace SpartaIMSWebsite.Migrations
                     b.HasOne("SpartaIMS_Database.Models.Cohort", "Cohort")
                         .WithMany("SpartanUsers")
                         .HasForeignKey("CohortID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SpartaIMS_Database.Models.JobRole", "JobRole")
                         .WithMany("SpartanUsers")
                         .HasForeignKey("JobRoleID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }
