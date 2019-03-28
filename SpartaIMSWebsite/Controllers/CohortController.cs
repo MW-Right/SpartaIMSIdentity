@@ -153,6 +153,7 @@ namespace SpartaIMSWebsite.Controllers
             _context.Cohorts.Remove(cohort);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
         }
 
         private bool CohortExists(int id)
