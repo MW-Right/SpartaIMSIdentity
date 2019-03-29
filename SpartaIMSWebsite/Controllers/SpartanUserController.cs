@@ -57,8 +57,8 @@ namespace SpartaIMSWebsite.Controllers
         // GET: SpartanUser/Create
         public IActionResult Create()
         {
-            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID");
-            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleID");
+            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortName");
+            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleName");
             return View();
         }
 
@@ -75,8 +75,8 @@ namespace SpartaIMSWebsite.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID", spartanUser.CohortID);
-            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleID", spartanUser.JobRoleID);
+            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortName", spartanUser.CohortID);
+            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleName", spartanUser.JobRoleID);
             return View(spartanUser);
         }
 
@@ -93,8 +93,8 @@ namespace SpartaIMSWebsite.Controllers
             {
                 return NotFound();
             }
-            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID", spartanUser.CohortID);
-            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleID", spartanUser.JobRoleID);
+            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortName", spartanUser.CohortID);
+            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleName", spartanUser.JobRoleID);
             return View(spartanUser);
         }
 
@@ -130,8 +130,8 @@ namespace SpartaIMSWebsite.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortID", spartanUser.CohortID);
-            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleID", spartanUser.JobRoleID);
+            ViewData["CohortID"] = new SelectList(_context.Cohorts, "CohortID", "CohortName", spartanUser.CohortID);
+            ViewData["JobRoleID"] = new SelectList(_context.JobRoles, "JobRoleID", "JobRoleName", spartanUser.JobRoleID);
             return View(spartanUser);
         }
 
